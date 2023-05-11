@@ -2,7 +2,7 @@ const router = require("express").Router();
 const mongoose = require("mongoose");
 const axios = require("axios");
 
-const Home = require('../models/Home.model')
+const Home = require("../models/Home.model");
 
 //create home
 router.post("/home", async (req, res, next) => {
@@ -10,7 +10,12 @@ router.post("/home", async (req, res, next) => {
 
   try {
     let home = await Home.create({
-        info, picture, github, linkedin, phone, email
+      info,
+      picture,
+      github,
+      linkedin,
+      phone,
+      email,
     });
 
     res.json(home);
@@ -22,7 +27,7 @@ router.post("/home", async (req, res, next) => {
 //Get home
 router.get("/home", async (req, res, next) => {
   try {
-    const home = await Home.find();
+    const home = await Home.findOne();
     res.json(home);
   } catch (error) {
     res.json(error);
@@ -44,7 +49,12 @@ router.put("/home/edit/:id", async (req, res, next) => {
     const updatedHome = await Home.findByIdAndUpdate(
       id,
       {
-        info, picture, github, linkedin, phone, email
+        info,
+        picture,
+        github,
+        linkedin,
+        phone,
+        email,
       },
       { new: true }
     );

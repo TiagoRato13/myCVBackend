@@ -21,11 +21,15 @@ app.use("/api", indexRoutes);
 const authRoutes = require("./routes/auth.routes");
 app.use("/auth", authRoutes);
 
-const interestRoutes = require("./routes/interests.routes");
-app.use("/api", interestRoutes);
+/* HOME PAGE ROUTE */
 
 const homeRoutes = require("./routes/home.routes");
 app.use("/api", homeRoutes);
+
+/* INTERESTS PAGE ROUTE */
+
+const interestRoutes = require("./routes/interests.routes");
+app.use("/api", interestRoutes);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
