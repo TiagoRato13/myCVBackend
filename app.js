@@ -28,8 +28,13 @@ app.use("/api", homeRoutes);
 
 /* INTERESTS PAGE ROUTE */
 
-const interestRoutes = require("./routes/interests.routes");
+const interestRoutes = require("./routes/interest.routes");
 app.use("/api", interestRoutes);
+
+/* EDUCATION PAGE ROUTE */
+
+const educationRoutes = require("./routes/education.routes");
+app.use("/api", educationRoutes);
 
 /* PROJECTS PAGE ROUTE */
 

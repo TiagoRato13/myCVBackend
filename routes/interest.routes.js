@@ -5,13 +5,14 @@ const axios = require("axios");
 const Interest = require("../models/Interest.model");
 
 //create interests
-router.post("/interests", async (req, res, next) => {
-  const { name, icon, pictures, aditionalInfo } = req.body;
+router.post("/interest", async (req, res, next) => {
+  const { name, activeIcon, inactiveIcon, pictures, aditionalInfo } = req.body;
 
   try {
     let interest = await Interest.create({
       name,
-      icon,
+      activeIcon,
+      inactiveIcon,
       pictures,
       aditionalInfo,
     });
@@ -23,7 +24,7 @@ router.post("/interests", async (req, res, next) => {
 });
 
 //Get interest
-router.get("/interests", async (req, res, next) => {
+router.get("/interest", async (req, res, next) => {
   try {
     const interest = await Interest.find();
     res.json(interest);
@@ -34,9 +35,9 @@ router.get("/interests", async (req, res, next) => {
 
 //Update interest
 
-router.put("/interests/edit/:id", async (req, res, next) => {
+router.put("/interest/edit/:id", async (req, res, next) => {
   const { id } = req.params;
-  const { name, icon, pictures, aditionalInfo } = req.body;
+  const { name, activeIcon, inactiveIcon, pictures, aditionalInfo } = req.body;
 
   //check if id is a mongoDB valid ID
   if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -48,7 +49,8 @@ router.put("/interests/edit/:id", async (req, res, next) => {
       id,
       {
         name,
-        icon,
+        activeIcon,
+        inactiveIcon,
         pictures,
         aditionalInfo,
       },
@@ -63,7 +65,7 @@ router.put("/interests/edit/:id", async (req, res, next) => {
 
 //Delete interest
 
-router.delete("/interests/:id", async (req, res, next) => {
+router.delete("/interest/:id", async (req, res, next) => {
   const { id } = req.params;
 
   //check if id is a mongoDB valid ID
