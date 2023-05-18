@@ -27,8 +27,29 @@ const educationSchema = new Schema(
 
     project: [
       {
-        type: Schema.Types.ObjectId,
-        ref: "Project",
+        name: {
+          type: String,
+          required: true,
+          trim: true,
+        },
+        link: {
+          type: String,
+          required: true,
+          trim: true,
+        },
+        image: {
+          type: String,
+          required: true,
+          default:
+            "https://res.cloudinary.com/datglss57/image/upload/v1683728219/myCV/temporary_image_dl1cem.jpg",
+        },
+        technology: [
+          {
+            type: String,
+            required: true,
+            trim: true,
+          },
+        ],
       },
     ],
   },
