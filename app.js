@@ -26,15 +26,20 @@ app.use("/auth", authRoutes);
 const homeRoutes = require("./routes/home.routes");
 app.use("/api", homeRoutes);
 
-/* INTERESTS PAGE ROUTE */
-
-const interestRoutes = require("./routes/interest.routes");
-app.use("/api", interestRoutes);
-
 /* EDUCATION PAGE ROUTE */
 
 const educationRoutes = require("./routes/education.routes");
 app.use("/api", educationRoutes);
+
+/* EXPERIENCE PAGE ROUTE */
+
+const experienceRoutes = require("./routes/experience.routes");
+app.use("/api", experienceRoutes);
+
+/* INTERESTS PAGE ROUTE */
+
+const interestRoutes = require("./routes/interest.routes");
+app.use("/api", interestRoutes);
 
 /* PROJECTS PAGE ROUTE */
 
