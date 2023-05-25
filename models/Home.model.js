@@ -15,24 +15,92 @@ const homeSchema = new Schema(
         "https://res.cloudinary.com/datglss57/image/upload/v1683728219/myCV/temporary_image_dl1cem.jpg",
     },
     github: {
-      type: String,
-      required: true,
-      trim: true,
+      name: {
+        type: String,
+        required: true,
+      },
+      image: {
+        active: {
+          type: String,
+          default:
+            "https://res.cloudinary.com/datglss57/image/upload/v1683728219/myCV/temporary_image_dl1cem.jpg",
+        },
+        inactive: {
+          type: String,
+          default:
+            "https://res.cloudinary.com/datglss57/image/upload/v1683728219/myCV/temporary_image_dl1cem.jpg",
+        },
+      },
+      link: {
+        type: String,
+        required: true,
+      },
     },
     linkedin: {
-      type: String,
-      required: true,
-      trim: true,
+      name: {
+        type: String,
+        required: true,
+      },
+      image: {
+        active: {
+          type: String,
+          default:
+            "https://res.cloudinary.com/datglss57/image/upload/v1683728219/myCV/temporary_image_dl1cem.jpg",
+        },
+        inactive: {
+          type: String,
+          default:
+            "https://res.cloudinary.com/datglss57/image/upload/v1683728219/myCV/temporary_image_dl1cem.jpg",
+        },
+      },
+      link: {
+        type: String,
+        required: true,
+      },
     },
     phone: {
-      type: String,
-      required: true,
-      trim: true,
+      name: {
+        type: String,
+        required: true,
+      },
+      image: {
+        active: {
+          type: String,
+          default:
+            "https://res.cloudinary.com/datglss57/image/upload/v1683728219/myCV/temporary_image_dl1cem.jpg",
+        },
+        inactive: {
+          type: String,
+          default:
+            "https://res.cloudinary.com/datglss57/image/upload/v1683728219/myCV/temporary_image_dl1cem.jpg",
+        },
+      },
+      number: {
+        type: String,
+        required: true,
+      },
     },
     email: {
-      type: String,
-      required: true,
-      trim: true,
+      name: {
+        type: String,
+        required: true,
+      },
+      image: {
+        active: {
+          type: String,
+          default:
+            "https://res.cloudinary.com/datglss57/image/upload/v1683728219/myCV/temporary_image_dl1cem.jpg",
+        },
+        inactive: {
+          type: String,
+          default:
+            "https://res.cloudinary.com/datglss57/image/upload/v1683728219/myCV/temporary_image_dl1cem.jpg",
+        },
+      },
+      address: {
+        type: String,
+        required: true,
+      },
     },
   },
   {
