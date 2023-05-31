@@ -8,6 +8,6 @@ RUN rm -rf node_modules
 
 RUN npm install
 
-EXPOSE 5173
+EXPOSE 5005
 
 CMD ["node", "server.js"]
