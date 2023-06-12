@@ -5,12 +5,15 @@ const axios = require("axios");
 const Project = require("../models/Project.model");
 
 //create project
-router.post("/projects", async (req, res, next) => {
+router.post("/project", async (req, res, next) => {
   const { name, link, image, technology } = req.body;
 
   try {
     let project = await Project.create({
-        name, link, image, technology
+      name,
+      link,
+      image,
+      technology,
     });
 
     res.json(project);
@@ -20,7 +23,7 @@ router.post("/projects", async (req, res, next) => {
 });
 
 //Get project
-router.get("/projects", async (req, res, next) => {
+router.get("/project", async (req, res, next) => {
   try {
     const project = await Project.find();
     res.json(project);
@@ -31,7 +34,7 @@ router.get("/projects", async (req, res, next) => {
 
 //Update project
 
-router.put("/projects/edit/:id", async (req, res, next) => {
+router.put("/project/edit/:id", async (req, res, next) => {
   const { id } = req.params;
   const { name, link, image, technology } = req.body;
 
@@ -44,7 +47,10 @@ router.put("/projects/edit/:id", async (req, res, next) => {
     const updatedProject = await Project.findByIdAndUpdate(
       id,
       {
-        name, link, image, technology
+        name,
+        link,
+        image,
+        technology,
       },
       { new: true }
     );
@@ -57,7 +63,7 @@ router.put("/projects/edit/:id", async (req, res, next) => {
 
 //Delete project
 
-router.delete("/projects/:id", async (req, res, next) => {
+router.delete("/project/:id", async (req, res, next) => {
   const { id } = req.params;
 
   //check if id is a mongoDB valid ID
@@ -65,7 +71,7 @@ router.delete("/projects/:id", async (req, res, next) => {
     res.json("The provided id is not valid");
   }
 
-  //remove the book
+  //remove the project
   try {
     await Project.findByIdAndRemove(id);
     res.json({ message: `Project with the id ${id} deleted successfully` });
