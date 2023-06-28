@@ -6,14 +6,12 @@ const Interest = require("../models/Interest.model");
 
 //create interests
 router.post("/interest", async (req, res, next) => {
-  const { name, activeIcon, inactiveIcon, pictures, aditionalInfo } = req.body;
+  const { name, picture, aditionalInfo } = req.body;
 
   try {
     let interest = await Interest.create({
       name,
-      activeIcon,
-      inactiveIcon,
-      pictures,
+      picture,
       aditionalInfo,
     });
 
@@ -37,7 +35,7 @@ router.get("/interest", async (req, res, next) => {
 
 router.put("/interest/edit/:id", async (req, res, next) => {
   const { id } = req.params;
-  const { name, activeIcon, inactiveIcon, pictures, aditionalInfo } = req.body;
+  const { name, picture, aditionalInfo } = req.body;
 
   //check if id is a mongoDB valid ID
   if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -49,9 +47,7 @@ router.put("/interest/edit/:id", async (req, res, next) => {
       id,
       {
         name,
-        activeIcon,
-        inactiveIcon,
-        pictures,
+        picture,
         aditionalInfo,
       },
       { new: true }
