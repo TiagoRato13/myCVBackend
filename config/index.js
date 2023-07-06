@@ -14,9 +14,9 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
 const FRONTEND_URL =
-  /* process.env.ORIGIN.split(",") || */
-  "https://tiagorato.vercel.app";
-/* "http://localhost:3000"; */
+  process.env.ORIGIN.split(",") ||
+  "https://tiagorato.vercel.app" ||
+  "http://localhost:3000";
 console.log(FRONTEND_URL);
 
 // Middleware configuration
