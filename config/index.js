@@ -13,10 +13,7 @@ const cookieParser = require("cookie-parser");
 // unless the request is made from the same domain, by default express wont accept POST requests
 const cors = require("cors");
 
-const FRONTEND_URL =
-  process.env.ORIGIN.split(",") ||
-  "https://tiagorato.vercel.app" ||
-  "http://localhost:3000";
+const FRONTEND_URL = process.env.ORIGIN.split(",") || "http://localhost:3000";
 console.log(FRONTEND_URL);
 
 // Middleware configuration
@@ -28,7 +25,7 @@ module.exports = (app) => {
   // controls a very specific header to pass headers from the frontend
   app.use(
     cors({
-      origin: [FRONTEND_URL],
+      origin: [FRONTEND_URL] || "https://tiagorato.vercel.app",
     })
   );
 
