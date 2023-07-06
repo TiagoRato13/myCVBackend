@@ -26,6 +26,7 @@ module.exports = (app) => {
   app.use(
     cors({
       origin: [FRONTEND_URL, "https://tiagorato.vercel.app"],
+      exposedHeaders: "Access-Control-Allow-Origin",
     })
   );
 
